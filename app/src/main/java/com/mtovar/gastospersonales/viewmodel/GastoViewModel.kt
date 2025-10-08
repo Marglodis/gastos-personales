@@ -16,4 +16,8 @@ class GastoViewModel : ViewModel() {
             _gastos.value = _gastos.value + gasto
         }
     }
+
+    fun eliminarGasto(gasto: Gasto) {
+        // Implementación según tu arquitectura
+    }
 }
