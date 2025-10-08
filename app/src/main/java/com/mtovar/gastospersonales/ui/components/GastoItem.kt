@@ -1,6 +1,7 @@
 package com.mtovar.gastospersonales.ui.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
@@ -15,7 +16,7 @@ import com.mtovar.gastospersonales.model.Gasto
 fun GastoItem(gasto: Gasto) {
     Card(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(8.dp).fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
             Text(text = gasto.nombre, style = MaterialTheme.typography.titleMedium)
