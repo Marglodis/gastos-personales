@@ -1,5 +1,6 @@
 package com.mtovar.gastospersonales.ui.screen
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -28,7 +29,7 @@ import com.mtovar.gastospersonales.ui.components.GastoItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GastoScreen(viewModel: GastoViewModel){
+fun GastoScreen(viewModel: GastoViewModel) {
     val gastos by viewModel.gastos.collectAsState()
     var nuevoGasto by remember { mutableStateOf(Gasto(nombre = "", categoria = "", monto = 0.0)) }
     var showInput by remember { mutableStateOf(false) }
@@ -52,13 +53,12 @@ fun GastoScreen(viewModel: GastoViewModel){
             }
         }
     ) { padding ->
-        LazyColumn { items(gastos) { gasto ->
-            GastoItem(gasto)
-        } }
+        LazyColumn(modifier = Modifier.padding(padding)) {
+            items(gastos) { gasto ->
+                GastoItem(gasto)
+            }
+        }
     }
-
-
-
 
 
 }
