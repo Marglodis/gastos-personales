@@ -28,6 +28,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -43,6 +44,7 @@ import com.mtovar.gastospersonales.model.Gasto
 import com.mtovar.gastospersonales.ui.components.EmptyGastosView
 import com.mtovar.gastospersonales.ui.components.GastoItem
 import com.mtovar.gastospersonales.ui.components.GastosSummaryCard
+import com.mtovar.gastospersonales.ui.theme.AppTheme
 import com.mtovar.gastospersonales.utils.formatCurrency
 import com.mtovar.gastospersonales.utils.resetForm
 import com.mtovar.gastospersonales.viewmodel.GastoViewModel
@@ -56,7 +58,7 @@ fun GastoScreen(viewModel: GastoViewModel) {
     val gastos by viewModel.gastos.collectAsState()
     var showInput by remember { mutableStateOf(false) }
 
-    // Separar variables para mejor manjejo
+    // Separar variables para mejor manejo
     var nombre by remember { mutableStateOf("") }
     var categoria by remember { mutableStateOf("") }
     var montoText by remember { mutableStateOf("") }
@@ -100,6 +102,7 @@ fun GastoScreen(viewModel: GastoViewModel) {
         ) {
             // Resumen de gastos
             if (gastos.isNotEmpty()) {
+                // Se ha movido el Card al componente GastosSummaryCard para mayor reutilización
                 GastosSummaryCard(totalGastos = gastos.sumOf { it.monto })
             }
 

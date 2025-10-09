@@ -23,6 +23,11 @@ fun EmptyGastosView() {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
+            text = "🎯",
+            style = MaterialTheme.typography.displayLarge
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
             text = "No hay gastos registrados",
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
